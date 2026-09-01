@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: shopverse-backend
+  namespace: shopverse
+
+spec:
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
+  selector:
+    matchLabels:
+      app: shopverse-backend
+
+  template:
+    metadata:
+      labels:
+        app: shopverse-backend
+
+    spec:
+      containers:
+        - name: backend
+          image: cloudwithyash/shopverse-back:533b2c092400de8c92525b4c1430d829bc4ee066
+
+          ports:
+            - containerPort: 8080
+
+          envFrom:
+            - secretRef:
+                name: shopverse-secret
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+
+            initialDelaySeconds: 10
+            periodSeconds: 5

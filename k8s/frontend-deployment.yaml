@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: shopverse-frontend
+  namespace: shopverse
+
+spec:
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
+  selector:
+    matchLabels:
+      app: shopverse-frontend
+
+  template:
+    metadata:
+      labels:
+        app: shopverse-frontend
+
+    spec:
+      containers:
+        - name: frontend
+          image: cloudwithyash/shopverse-front:533b2c092400de8c92525b4c1430d829bc4ee066
+          ports:
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+
+            initialDelaySeconds: 10
+            periodSeconds: 5
