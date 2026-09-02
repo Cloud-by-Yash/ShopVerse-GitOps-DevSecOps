@@ -3,6 +3,13 @@ kind: Application
 metadata:
   name: shopverse-app
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: frontend=cloudwithyash/shopverse-front, backend=cloudwithyash/shopverse-back
+
+    argocd-image-updater.argoproj.io/frontend.update-strategy: latest
+    argocd-image-updater.argoproj.io/backend.update-strategy: latest
+    
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
 spec:
   project: default
   source:
