@@ -11,3 +11,9 @@ resources:
   - HPA-backend.yaml
   - HPA-frontend.yaml
   - ingress.yaml
+
+images:
+  - name: cloudwithyash/shopverse-back
+    newTag: 533b2c092400de8c92525b4c1430d829bc4ee066
+  - name: cloudwithyash/shopverse-front
+    newTag: 533b2c092400de8c92525b4c1430d829bc4ee066

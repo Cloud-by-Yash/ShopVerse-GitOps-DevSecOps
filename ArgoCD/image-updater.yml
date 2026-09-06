@@ -1,0 +1,20 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: shopverse-image-updater
+  namespace: argocd
+spec:
+  commonUpdateSettings:
+    updateStrategy: "newest-build"
+  writeBackConfig:
+    method: "git:secret:argocd/git-creds"
+    gitConfig:
+      repository: "https://github.com/Cloud-by-Yash/ShopVerse-GitOps-DevSecOps.git"
+      branch: "main"
+  applicationRefs:
+    - namePattern: "shopverse-app"
+      images:
+        - alias: "frontend"
+          imageName: "cloudwithyash/shopverse-front"
+        - alias: "backend"
+          imageName: "cloudwithyash/shopverse-back"
