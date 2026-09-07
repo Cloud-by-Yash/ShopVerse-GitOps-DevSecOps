@@ -1,0 +1,4 @@
+kustomize:
+  images:
+  - cloudwithyash/shopverse-front:b8237eee4c14734ade90314ab6a985d9fca6272a
+  - cloudwithyash/shopverse-back:b8237eee4c14734ade90314ab6a985d9fca6272a
