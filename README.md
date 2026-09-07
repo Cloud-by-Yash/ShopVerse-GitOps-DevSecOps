@@ -2,7 +2,11 @@
 
 An Infrastructure-as-Code (IaC) and GitOps platform delivering zero-downtime progressive deployments, automated image write-backs, and self-healing cluster orchestration on AWS EKS. 
 
-*This repository governs platform state, cloud infrastructure, and delivery pipelines. Application code and CI workflows are decoupled in [Shopverse-App](#related-repositories).*
+*This repository governs platform state, cloud infrastructure, and delivery pipelines. Application code and CI workflows are decoupled.
+
+## Related Repositories
+
+* **Application Source & CI Pipeline:** [Shopverse-App](https://github.com/Cloud-by-Yash/shopverse-app)
 
 ---
 
