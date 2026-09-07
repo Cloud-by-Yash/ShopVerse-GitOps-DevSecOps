@@ -13,6 +13,6 @@ resources:
 
 images:
   - name: cloudwithyash/shopverse-back
-    newTag: 913a7ecf81de536ef36b6289061571c120961e0a
+    newTag: ddcc56f6922b5dc530bc529c60f06e0a48d1c235
   - name: cloudwithyash/shopverse-front
-    newTag: 913a7ecf81de536ef36b6289061571c120961e0a
+    newTag: ddcc56f6922b5dc530bc529c60f06e0a48d1c235
