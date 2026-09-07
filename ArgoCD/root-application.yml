@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/Cloud-by-Yash/ShopVerse-GitOps-DevSecOps.git'
-    targetRevision: HEAD
+    targetRevision: main
     path: k8s
   destination:
     server: 'https://kubernetes.default.svc'
@@ -18,3 +18,9 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      name: shopverse-secret
+      jsonPointers:
+        - /data

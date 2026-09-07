@@ -11,6 +11,7 @@ spec:
     gitConfig:
       repository: "https://github.com/Cloud-by-Yash/ShopVerse-GitOps-DevSecOps.git"
       branch: "main"
+      writeBackTarget: "kustomization"
   applicationRefs:
     - namePattern: "shopverse-app"
       images:
