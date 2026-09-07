@@ -23,9 +23,11 @@ An Infrastructure-as-Code (IaC) and GitOps platform delivering zero-downtime pro
 
 ## GitOps Automated Delivery Flow
 
-> **[ Developer Push ]** ──> **[ GitHub Actions CI ]** ──> **[ Build & Push SHA Tag to Docker Hub ]**
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **│**
-> **[ EKS Rolling Update ]** <── **[ Argo CD Sync ]** <── **[ Git Commit ]** <── **[ Argo CD Image Updater ]**
+<img width="750" alt="shopverse-architecture" src="https://github.com/user-attachments/assets/c8b2e727-b7d8-4cef-bc14-874a0b6dd47b" />
+
+
+---
+
 
 1. **CI Pipeline:** Code pushed to `Shopverse-App` triggers GitHub Actions to test, build, and publish an immutable SHA-tagged image to Docker Hub.
 2. **Registry Detection:** Argo CD Image Updater detects the new image tag on Docker Hub.
